@@ -198,7 +198,8 @@ section{position:relative}
 @keyframes daMorph{0%,100%{border-radius:62% 38% 44% 56%/42% 56% 44% 58%}50%{border-radius:41% 59% 60% 40%/58% 42% 58% 42%}}
 @media(prefers-reduced-motion:reduce){.hv-ring{animation:none}}
 /* SEC 2 — IDENTIFICACAO COM DORES */
-.sec-duv{background:linear-gradient(180deg,var(--areia-fim) 0,var(--areia) 190px);overflow:hidden}
+/* r54 TESTE: prancheta de fundo cover centralizada */
+.sec-duv{background:url(assets/prancheta-13242.jpg) center/cover no-repeat;overflow:hidden}
 /* divisoria 1a->2a seccao (r19->r20): FAIXA MARQUEE horizontal em loop
    infinito (palavras grandes correndo, gramatica da ref r20). Pausa suave
    no hover; prefers-reduced-motion desliga. */
