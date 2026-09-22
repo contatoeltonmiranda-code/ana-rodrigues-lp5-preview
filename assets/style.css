@@ -200,7 +200,7 @@ section{position:relative}
 @media(prefers-reduced-motion:reduce){.hv-ring{animation:none}}
 /* SEC 2 — IDENTIFICACAO COM DORES */
 /* r54 TESTE: prancheta de fundo cover centralizada */
-.sec-duv{background:url(assets/prancheta-13242.jpg) center/cover no-repeat;overflow:hidden}
+.sec-duv{background:url(prancheta-13242.jpg) center/cover no-repeat;overflow:hidden}
 /* divisoria 1a->2a seccao (r19->r20): FAIXA MARQUEE horizontal em loop
    infinito (palavras grandes correndo, gramatica da ref r20). Pausa suave
    no hover; prefers-reduced-motion desliga. */
