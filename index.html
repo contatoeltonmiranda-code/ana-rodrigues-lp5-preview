@@ -41,6 +41,11 @@
             <input type="email" id="fEmail" name="email" autocomplete="email" required>
           </div>
         </div>
+        <label class="lp-consent" for="fPriv">
+          <input type="checkbox" id="fPriv" required>
+          <span>Li e aceito a <a href="https://www.lp.entrepapasefrutas.pt/politicaprivacidade" target="_blank" rel="noopener">Política de Privacidade</a>.</span>
+        </label>
+        <p class="lp-consent-msg" hidden>Confirma a aceitação da Política de Privacidade para continuar.</p>
         <button type="submit" class="btn lg full">Garantir a minha vaga</button>
       </form>
       <p class="lp-nota">Participa em direto para colocares as tuas dúvidas e aproveitares o acesso gratuito.</p>
@@ -55,29 +60,31 @@
   </div>
 </section>
 
+<!-- ============ DIVISÓRIA — FAIXA MARQUEE (r19->r20) ============ -->
+<div class="faixa-marquee" aria-hidden="true">
+  <div class="fm-track">
+    <div class="fm-group">
+      <span>Recusa alimentar</span><i></i>
+      <span>Seletividade</span><i></i>
+      <span>Criança que não come</span><i></i>
+      <span>Mitos e crenças</span><i></i>
+      <span>Refeições em batalha</span><i></i>
+      <span>Novos alimentos</span><i></i>
+    </div>
+    <div class="fm-group">
+      <span>Recusa alimentar</span><i></i>
+      <span>Seletividade</span><i></i>
+      <span>Criança que não come</span><i></i>
+      <span>Mitos e crenças</span><i></i>
+      <span>Refeições em batalha</span><i></i>
+      <span>Novos alimentos</span><i></i>
+    </div>
+  </div>
+</div>
+
 <!-- ============ SECÇÃO 2 — IDENTIFICAÇÃO COM DORES ============ -->
 <section class="sec sec-duv">
   <div class="orb coral br" aria-hidden="true"></div>
-  <div class="rail-words" aria-hidden="true">
-    <div class="rail-track">
-      <div class="rail-group">
-        <span>Recusa alimentar</span>
-        <span>Seletividade</span>
-        <span>Criança que não come</span>
-        <span>Mitos e crenças</span>
-        <span>Refeições em batalha</span>
-        <span>Novos alimentos</span>
-      </div>
-      <div class="rail-group">
-        <span>Recusa alimentar</span>
-        <span>Seletividade</span>
-        <span>Criança que não come</span>
-        <span>Mitos e crenças</span>
-        <span>Refeições em batalha</span>
-        <span>Novos alimentos</span>
-      </div>
-    </div>
-  </div>
   <div class="wrap">
     <div class="center">
       <h2 class="maxw-lg sr-hidden">Se chegaste até aqui, provavelmente <span class="txt-grad">já tentaste de tudo...</span></h2>
@@ -103,9 +110,9 @@
           </div>
         </div>
       </div>
-      <div class="duv-photo sr-hidden">
-        <img src="assets/banco-recusa.jpg" alt="Criança a tapar a boca diante do prato de legumes à mesa" loading="lazy" width="1000" height="675">
-      </div>
+      <!-- r22: espaco da imagem VAZIO — o container mantem o tamanho/posicao
+           no grid, mas sem imagem (posicionamentos dos outros elementos intactos) -->
+      <div class="duv-photo sr-hidden" aria-hidden="true"></div>
       <div class="duv-col duv-col-r sr-hidden">
         <div class="frases">
           <p>Enquanto ouves frases como <b>"quando tiver fome, come"</b> ou <b>"isso é só uma fase"</b>, que só te deixam mais ansiosa(o) e confusa(o).</p>
@@ -132,8 +139,17 @@
   <div class="wrap center">
     <h2 class="maxw-lg sr-hidden">Esta aula vai mudar a forma como olhas para a alimentação do teu filho.</h2>
     <p class="lead duv-intro sr-hidden">No final, vais...</p>
-    <div class="ia-stage">
-      <img class="ia-img sr-hidden" src="assets/recusa-ia.png" alt="Ilustração de um prato com legumes recusados e um balão de fala com uma criança a virar a cara" loading="lazy" width="544" height="381">
+    <!-- r31->r32: foto CIRCULAR da Ana no centro; frase 1 em card no lado
+         esquerdo superior, frase 2 no direito superior, ultima frase embaixo,
+         centrada. Linhas conectoras com gradiente transparente (r24) ligam
+         cada card ao disco central. Copy verbatim. -->
+    <div class="ia-stage ia-circ">
+      <div class="ia-disc sr-hidden">
+        <img src="assets/ana-final.jpg" alt="Ana Rodrigues Lopes, Nutricionista Pediátrica, sorridente com uma fruta na mão" loading="lazy" width="1100" height="1650">
+      </div>
+      <span class="ia-linha fl1" aria-hidden="true"></span>
+      <span class="ia-linha fl2" aria-hidden="true"></span>
+      <span class="ia-linha fl3" aria-hidden="true"></span>
       <div class="ia-label l1 sr-hidden">
         <span class="ia-no" aria-hidden="true">1</span>
         <p>Compreender melhor o teu filho e aquilo que pode estar por trás da recusa de determinados alimentos.</p>
@@ -156,34 +172,42 @@
   <div class="sep-seal" style="--ss-cor:var(--paper)" aria-hidden="true">
     <svg viewBox="0 0 24 24" focusable="false"><path d="M12 4.5v14"/><path d="M6.4 12.7l5.6 5.6 5.6-5.6"/></svg>
   </div>
-  <div class="orb br" aria-hidden="true"></div>
+  <!-- r25: o section perde overflow:hidden (o selo straddle era cortado ao
+       meio); os orbes ficam num wrapper proprio que faz o clipping -->
+  <div class="sec-bg" aria-hidden="true">
+    <div class="orb br"></div>
+  </div>
   <div class="wrap center">
     <span class="eyebrow coral sr-hidden">Sobre mim</span>
     <h2 class="sr-hidden">Quem te vai acompanhar nesta aula?</h2>
   </div>
   <div class="wrap">
-    <div class="sobre-foto-top sr-hidden">
-      <img src="assets/ana-sobre.jpg" alt="Ana Rodrigues Lopes, Nutricionista Pediátrica, sentada numa poltrona clara" loading="lazy" width="900" height="1350">
-    </div>
-    <div class="cred-seal" role="img" aria-label="Nutricionista Pediátrica, CP n.º 2069N">
-      <span class="cs-glow" aria-hidden="true"></span>
-      <span class="cs-disc" aria-hidden="true"></span>
-      <span class="cs-anel" aria-hidden="true"></span>
-      <span class="cs-core"><b>C.P. n.º 2069N</b><span>Nutricionista<br>Pediátrica</span></span>
-    </div>
-    <div class="sobre-itens">
-      <article class="sobre-card sr-hidden">
+    <!-- r27->r28: 2 colunas como antes — collage de 3 fotos a esquerda
+         (posicionamento da ref r28: foto principal + foto deslocada + foto
+         pequena sobreposta + selo circular) e texto DIRETO a direita (sem
+         card). Copy verbatim. -->
+    <div class="sobre-grid">
+      <div class="sobre-collage sr-hidden">
+        <figure class="sc-a"><img src="assets/ana-sobre.jpg" alt="Ana Rodrigues Lopes, Nutricionista Pediátrica, sentada numa poltrona clara" loading="lazy" width="900" height="1350"></figure>
+        <figure class="sc-b"><img src="assets/ana-3.jpg" alt="Ana Rodrigues Lopes recostada no sofá" loading="lazy" width="900" height="1350"></figure>
+        <figure class="sc-c"><img src="assets/ana-6.jpg" alt="Ana Rodrigues Lopes a olhar diretamente para a câmara" loading="lazy" width="900" height="1350"></figure>
+        <div class="cred-seal" role="img" aria-label="Nutricionista Pediátrica, CP n.º 2069N">
+          <span class="cs-glow" aria-hidden="true"></span>
+          <span class="cs-disc" aria-hidden="true"></span>
+          <span class="cs-anel" aria-hidden="true"></span>
+          <span class="cs-core"><b>C.P. n.º 2069N</b><span>Nutricionista<br>Pediátrica</span></span>
+        </div>
+      </div>
+      <div class="sobre-txt sr-hidden">
         <h3>Olá, sou a Ana!</h3>
         <p>Sou <strong>Nutricionista Pediátrica (CP n.º 2069N)</strong>, mãe de duas crianças e, antes de tudo isto, fui uma criança seletiva. Daquelas que fugia da mesa, demorava uma eternidade a comer, e que ainda hoje se lembra da ansiedade que sentia perante algumas refeições.</p>
         <p>Talvez por isso este tema me seja tão próximo.</p>
         <p>Cresci e, meio que por acaso, a nutrição escolheu-me. Sou <strong>Nutricionista (CP n.º 2069N) há 13 anos</strong>, Pós-Graduada em Nutrição Pediátrica e Escolar, Profissional de Saúde Neurocompatível&reg; e tenho formação na Get Permission Approach&reg;, uma abordagem internacional para crianças com recusa e seletividade alimentar, que procura compreender a criança antes de intervir, ajudando as famílias a construir refeições mais tranquilas e positivas.</p>
-      </article>
-      <article class="sobre-card sr-hidden">
         <p>Acompanho diariamente famílias que vivem exatamente aquilo que talvez estejas a viver agora: preocupação, frustração e a sensação de não saber o que fazer para ajudar o filho a comer. E compreendo bem esta realidade: eu própria já passei (e continuo a passar) por desafios com a alimentação dos meus filhos.</p>
         <p>Acredito que todas as crianças merecem gostar de comer e ser compreendidas nas suas dificuldades. As refeições devem ser momentos de encontro, partilha, ligação e nutrição, e não uma fonte constante de stress e conflito.</p>
         <p>Sei que o problema das famílias não é falta de esforço. É não compreenderem o que está realmente por trás da recusa alimentar.</p>
         <p class="sobre-fim">É isso que vos quero mostrar nesta aula.</p>
-      </article>
+      </div>
     </div>
   </div>
 </section>
@@ -216,8 +240,17 @@
 
 <!-- ============ SECÇÃO 5 — FAQ ============ -->
 <section class="sec sec-faq sec-recebe">
-  <div class="sep-seal" style="--ss-cor:var(--areia)" aria-hidden="true">
-    <svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="8.2"/><path d="M9.6 9.8h.1M14.4 9.8h.1"/><path d="M9 13.6c.8.9 1.8 1.4 3 1.4s2.2-.5 3-1.4"/></svg>
+  <!-- r30: divisoria ONDULADA com icone (padrao curva-div do combo) — fill =
+       cor da seccao de cima (areia da Reserva), crista com fio, circulo com
+       chevron no dip central -->
+  <div class="curva-div" aria-hidden="true">
+    <svg viewBox="0 0 1440 112" preserveAspectRatio="none" focusable="false">
+      <path class="cd-fill" d="M0,0 H1440 V52 H836 C788,52 764,112 720,112 C676,112 652,52 604,52 H0 Z"/>
+      <path class="cd-crest" d="M0,52 H604 C652,52 676,112 720,112 C764,112 788,52 836,52 H1440"/>
+    </svg>
+    <span class="cd-circle">
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" focusable="false"><polyline points="6 9 12 15 18 9"/></svg>
+    </span>
   </div>
   <div class="wrap center">
     <h2 class="maxw sr-hidden">Perguntas frequentes</h2>
@@ -287,6 +320,11 @@
           <input type="email" id="popEmail" name="email" autocomplete="email" required>
         </div>
       </div>
+      <label class="lp-consent" for="popPriv">
+        <input type="checkbox" id="popPriv" required>
+        <span>Li e aceito a <a href="https://www.lp.entrepapasefrutas.pt/politicaprivacidade" target="_blank" rel="noopener">Política de Privacidade</a>.</span>
+      </label>
+      <p class="lp-consent-msg" hidden>Confirma a aceitação da Política de Privacidade para continuar.</p>
       <button type="submit" class="btn lg full">Garantir a minha vaga</button>
     </form>
     <p class="lp-nota">Participa em direto para colocares as tuas dúvidas e aproveitares o acesso gratuito.</p>
@@ -335,6 +373,33 @@ window.addEventListener('load',function(){
   fechar.addEventListener('click',fecha);
   pop.addEventListener('click',function(e){if(e.target===pop)fecha();});
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&pop.classList.contains('on'))fecha();});
+})();
+
+/* ===== Consentimento de privacidade (r21) — submit bloqueado sem checkbox ===== */
+(function(){
+  Array.prototype.forEach.call(document.querySelectorAll('.lp-form'),function(form){
+    var box=form.querySelector('input[type="checkbox"]');
+    var nota=form.querySelector('.lp-consent-msg');
+    var wrap=form.querySelector('.lp-consent');
+    if(!box||!nota||!wrap)return;
+    form.addEventListener('submit',function(e){
+      if(!box.checked){
+        e.preventDefault();
+        nota.hidden=false;
+        wrap.classList.add('err');
+        box.focus();
+      }
+    });
+    /* a validacao nativa (required) bloqueia ANTES do submit — a msg custom
+       aparece pelo evento invalid do checkbox */
+    box.addEventListener('invalid',function(){
+      nota.hidden=false;
+      wrap.classList.add('err');
+    });
+    box.addEventListener('change',function(){
+      if(box.checked){nota.hidden=true;wrap.classList.remove('err');}
+    });
+  });
 })();
 </script>
 </body>
