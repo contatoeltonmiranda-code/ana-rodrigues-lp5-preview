@@ -341,7 +341,7 @@ section{position:relative}
 .res-card h2,.res-card .res-lead b{color:#F8EAD9}
 .res-card .btn{background:#F8E2CB;color:#434A50;box-shadow:0 10px 28px rgba(67,74,80,.25)}
 .res-card .btn:hover{background:#F8EAD9}
-.res-card .res-lead b{color:var(--ink);font-weight:600}
+.res-card .res-lead b{color:#F8EAD9;font-weight:600}
 .res-card .btn{margin-top:30px}
 .res-panel{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;gap:14px;margin-left:0}
 .rp-pill{display:block;background:var(--grad-card);border:1px solid var(--linha);border-radius:999px;padding:14px 26px;font-family:'Montserrat',sans-serif;font-weight:500;font-size:15px;letter-spacing:.2px;color:var(--texto);line-height:1.5;box-shadow:var(--sh-soft)}
