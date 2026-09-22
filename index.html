@@ -104,16 +104,18 @@
             <span class="dc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3.4v10.2"/><path d="M8.6 13.9c.6 2.3 1.8 3.5 3.4 3.5s2.8-1.2 3.4-3.5"/><ellipse cx="12" cy="16.9" rx="6.4" ry="4.7"/></svg></span>
             <p>Já pediste "só mais uma dentada".</p>
           </div>
-          <div class="dores-card">
-            <span class="dc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="5.2" width="18" height="13.6" rx="2.4"/><path d="M3 10.2h18"/><path d="M8.4 3v4.4M15.6 3v4.4"/></svg></span>
-            <p>Já escondeste legumes na comida ou recorreste a ecrãs para conseguir que ele(a) comesse.</p>
-          </div>
         </div>
       </div>
       <!-- r22: espaco da imagem VAZIO — o container mantem o tamanho/posicao
            no grid, mas sem imagem (posicionamentos dos outros elementos intactos) -->
       <div class="duv-photo sr-hidden" aria-hidden="true"></div>
       <div class="duv-col duv-col-r sr-hidden">
+        <!-- r34: frase "Já escondeste legumes..." movida da coluna esquerda
+             para a direita, acima do card das frases -->
+        <div class="dores-card">
+          <span class="dc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="5.2" width="18" height="13.6" rx="2.4"/><path d="M3 10.2h18"/><path d="M8.4 3v4.4M15.6 3v4.4"/></svg></span>
+          <p>Já escondeste legumes na comida ou recorreste a ecrãs para conseguir que ele(a) comesse.</p>
+        </div>
         <div class="frases">
           <p>Enquanto ouves frases como <b>"quando tiver fome, come"</b> ou <b>"isso é só uma fase"</b>, que só te deixam mais ansiosa(o) e confusa(o).</p>
         </div>
@@ -139,14 +141,12 @@
   <div class="wrap center">
     <h2 class="maxw-lg sr-hidden">Esta aula vai mudar a forma como olhas para a alimentação do teu filho.</h2>
     <p class="lead duv-intro sr-hidden">No final, vais...</p>
-    <!-- r31->r32: foto CIRCULAR da Ana no centro; frase 1 em card no lado
-         esquerdo superior, frase 2 no direito superior, ultima frase embaixo,
-         centrada. Linhas conectoras com gradiente transparente (r24) ligam
-         cada card ao disco central. Copy verbatim. -->
-    <div class="ia-stage ia-circ">
-      <div class="ia-disc sr-hidden">
-        <img src="assets/ana-final.jpg" alt="Ana Rodrigues Lopes, Nutricionista Pediátrica, sorridente com uma fruta na mão" loading="lazy" width="1100" height="1650">
-      </div>
+    <!-- r35 (desfazer r31->r32): volta o layout anterior desta secao — imagem
+         IA (recusa-ia.png) no centro, labels flutuantes l1/l2/l3 nas posicoes
+         de antes e o efeito das LINHAS CONECTORAS (r24) de cada card ate a
+         imagem. Copy verbatim. -->
+    <div class="ia-stage">
+      <img class="ia-img sr-hidden" src="assets/recusa-ia.png" alt="Ilustração de um prato com legumes recusados e um balão de fala com uma criança a virar a cara" loading="lazy" width="544" height="381">
       <span class="ia-linha fl1" aria-hidden="true"></span>
       <span class="ia-linha fl2" aria-hidden="true"></span>
       <span class="ia-linha fl3" aria-hidden="true"></span>
@@ -182,15 +182,16 @@
     <h2 class="sr-hidden">Quem te vai acompanhar nesta aula?</h2>
   </div>
   <div class="wrap">
-    <!-- r27->r28: 2 colunas como antes — collage de 3 fotos a esquerda
-         (posicionamento da ref r28: foto principal + foto deslocada + foto
-         pequena sobreposta + selo circular) e texto DIRETO a direita (sem
-         card). Copy verbatim. -->
+    <!-- r36 -> r37: collage na gramatica da ref r37 — UMA imagem em cima
+         (centrada), DUAS embaixo lado a lado e o selo circular ANIMADO no
+         CENTRO da composicao. Copy verbatim. -->
     <div class="sobre-grid">
       <div class="sobre-collage sr-hidden">
         <figure class="sc-a"><img src="assets/ana-sobre.jpg" alt="Ana Rodrigues Lopes, Nutricionista Pediátrica, sentada numa poltrona clara" loading="lazy" width="900" height="1350"></figure>
-        <figure class="sc-b"><img src="assets/ana-3.jpg" alt="Ana Rodrigues Lopes recostada no sofá" loading="lazy" width="900" height="1350"></figure>
-        <figure class="sc-c"><img src="assets/ana-6.jpg" alt="Ana Rodrigues Lopes a olhar diretamente para a câmara" loading="lazy" width="900" height="1350"></figure>
+        <div class="sc-row">
+          <figure class="sc-b"><img src="assets/ana-3.jpg" alt="Ana Rodrigues Lopes recostada no sofá" loading="lazy" width="900" height="1350"></figure>
+          <figure class="sc-c"><img src="assets/ana-6.jpg" alt="Ana Rodrigues Lopes a olhar diretamente para a câmara" loading="lazy" width="900" height="1350"></figure>
+        </div>
         <div class="cred-seal" role="img" aria-label="Nutricionista Pediátrica, CP n.º 2069N">
           <span class="cs-glow" aria-hidden="true"></span>
           <span class="cs-disc" aria-hidden="true"></span>
@@ -229,11 +230,29 @@
         <span class="rp-pill rp-wide">Com informação que te vai ajudar a compreender melhor o teu filho(a) e a dar os próximos passos com mais confiança.</span>
       </aside>
     </div>
+    <!-- r39 -> r40: palco dos 3 itens na gramatica da ref r40 — foto da
+         expert (Ana) NO CENTRO em circulo, COM EFEITO em volta do circulo
+         (anel tracejado girando + glow + pontos), frase 1 no lado esquerdo
+         superior, frase 2 no lado direito superior e frase 3 embaixo da
+         imagem, centrada. Copy verbatim. -->
     <div class="julgos sr-hidden">
       <h3>Nesta aula não vais encontrar julgamentos.</h3>
-      <p>Não importa se já insististe, negociaste, escondeste legumes na comida ou ligaste a televisão para conseguir que o teu filho comesse.</p>
-      <p>Se fizeste alguma destas coisas, foi porque estavas a tentar ajudá-lo com as ferramentas e a informação que tinhas naquele momento.</p>
-      <p>O nosso objetivo nesta aula é compreender <strong>porque é que algumas estratégias podem funcionar com umas crianças... e não com outras.</strong></p>
+      <div class="jul-stage">
+        <div class="jul-disc">
+          <img src="assets/ana-final.jpg" alt="Ana Rodrigues Lopes, Nutricionista Pediátrica, sorridente com uma fruta na mão" loading="lazy" width="1100" height="1650">
+          <span class="jd-dot jd1" aria-hidden="true"></span>
+          <span class="jd-dot jd2" aria-hidden="true"></span>
+        </div>
+        <div class="jul-card j1">
+          <p>Não importa se já insististe, negociaste, escondeste legumes na comida ou ligaste a televisão para conseguir que o teu filho comesse.</p>
+        </div>
+        <div class="jul-card j2">
+          <p>Se fizeste alguma destas coisas, foi porque estavas a tentar ajudá-lo com as ferramentas e a informação que tinhas naquele momento.</p>
+        </div>
+        <div class="jul-card j3">
+          <p>O nosso objetivo nesta aula é compreender <strong>porque é que algumas estratégias podem funcionar com umas crianças... e não com outras.</strong></p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
