@@ -126,6 +126,7 @@ section{position:relative}
     calc(100% - 1.0139 * var(--aba-h)) 100%, 0 100%)}
 .aba.from-hero{--aba-cor:#F8EAD9}
 .aba.from-areia{--aba-cor:var(--areia)}
+.aba.from-prancheta{--aba-cor:#F8E2CB} /* r55: cor da borda inferior da prancheta (secao de cima) */
 .aba.from-paper{--aba-cor:var(--paper)}
 .aba.from-cream{--aba-cor:var(--cream)}
 @media(max-width:1024px){.aba{--aba-h:70px}}
