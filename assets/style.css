@@ -176,7 +176,7 @@ section{position:relative}
 .lp-form .lp-consent-msg:not([hidden]) + .btn{margin-top:14px}
 .lp-form .btn{margin-top:20px}
 /* r33: frase menor abaixo do form do hero */
-.lp-nota{margin-top:18px;text-align:center;font-size:11.5px;color:var(--texto);line-height:1.6;max-width:440px}
+.lp-nota{margin-top:18px;text-align:center;font-size:10px;color:var(--texto);line-height:1.6;max-width:440px}
 /* visual do hero — moldura organica (regra de ouro: cover, zero overlay) */
 .hero-visual{position:relative;display:flex;align-items:center;justify-content:center;min-height:0}
 .hv-shape{position:relative;width:100%;max-width:400px;aspect-ratio:4/4.4;overflow:hidden;
@@ -289,17 +289,19 @@ section{position:relative}
 /* r25: clipping dos orbes num wrapper proprio — o section fica
    overflow:visible para o selo divisorio straddle nao ser cortado ao meio */
 .sec-bg{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
-/* r36 -> r37: collage na gramatica da ref r37 — UMA imagem em cima
-   (centrada), DUAS embaixo lado a lado e o selo circular ANIMADO no CENTRO
-   (na linha onde as tres se encontram); texto DIRETO a direita (sem card) */
+/* r42 -> ronda 6: collage refeita NA GEOMETRIA DA REF r37 (medida por pixel):
+   foto de cima FULL WIDTH (aspect ~15/8, cantos retos, sem moldura), GAP de
+   fundo (~19px a 470px) e DUAS fotos embaixo (cada ~48%, aspect 4/3) — SEM
+   overlap, SEM moldura branca; selo C.P. animado no CENTRO, cravado na linha
+   onde as tres fotos se encontram (top 59%). Texto DIRETO a direita. */
 .sobre-grid{display:grid;grid-template-columns:1fr;gap:44px;max-width:1080px;margin:44px auto 0;align-items:center}
 .sobre-collage{position:relative;width:100%;max-width:470px;margin:0 auto;padding:0}
 .sobre-collage figure{margin:0;overflow:hidden;background:#fff}
 .sobre-collage img{width:100%;height:100%;object-fit:cover;display:block}
-.sc-a{position:relative;z-index:1;width:72%;aspect-ratio:4/5;margin:0 auto;border-radius:26px;box-shadow:0 26px 60px rgba(169,94,61,.22)}
-.sc-row{position:relative;z-index:2;display:flex;justify-content:center;gap:16px;margin-top:-58px}
-.sc-b,.sc-c{width:47%;aspect-ratio:3/4;border:6px solid #fff;border-radius:20px;box-shadow:0 22px 48px rgba(169,94,61,.24)}
-.cred-seal{position:absolute;z-index:4;width:118px;height:118px;top:52%;left:50%;transform:translate(-50%,-50%)}
+.sc-a{position:relative;z-index:1;width:100%;aspect-ratio:15/8;margin:0}
+.sc-row{position:relative;z-index:2;display:flex;justify-content:center;gap:14px;margin-top:19px}
+.sc-b,.sc-c{width:calc(50% - 7px);aspect-ratio:4/3}
+.cred-seal{position:absolute;z-index:4;width:104px;height:104px;top:59%;left:50%;transform:translate(-50%,-50%)}
 .cred-seal .cs-glow{position:absolute;inset:-16px;border-radius:50%;background:radial-gradient(circle,rgba(229,137,96,.28),transparent 66%);animation:orbBreath 4.6s ease-in-out infinite}
 .cred-seal .cs-disc{position:absolute;inset:0;border-radius:50%;background:var(--grad-sage);box-shadow:0 10px 26px rgba(169,94,61,.4),0 0 0 7px var(--cream)}
 .cred-seal .cs-anel{position:absolute;inset:-8px;border-radius:50%;pointer-events:none;border:1px solid rgba(229,137,96,.5);stroke-dasharray:5 9;animation:sealSpin 26s linear infinite}
@@ -334,9 +336,12 @@ section{position:relative}
 .julgos{position:relative;max-width:1000px;margin:52px auto 0;text-align:center}
 .julgos h3{font-size:clamp(22px,2.7vw,28px);line-height:1.1;margin-bottom:30px}
 .jul-stage{position:relative;z-index:0;min-height:660px;padding-top:110px}
-.jul-disc{position:relative;width:380px;aspect-ratio:1/1;margin:0 auto}
-.jul-disc img{width:100%;height:100%;object-fit:cover;object-position:center 28%;border-radius:50%;box-shadow:0 30px 64px rgba(169,94,61,.28);animation:iaFloat 7s ease-in-out infinite}
-@media(prefers-reduced-motion:reduce){.jul-disc img{animation:none}}
+/* r43: borda GROSSA com gradiente CIRCULAR (conic) em volta do circulo —
+   grad gira lento (var --angle, ja usada no card final); foto encolhe 12px
+   de cada lado dentro da borda */
+.jul-disc{position:relative;width:380px;aspect-ratio:1/1;margin:0 auto;padding:12px;border-radius:50%;background:conic-gradient(from var(--angle),#E58960 0deg,#ECD181 70deg,#EDB393 150deg,#B96A75 220deg,#C87246 290deg,#E58960 360deg);box-shadow:0 30px 64px rgba(169,94,61,.30);animation:angleSpin 9s linear infinite}
+.jul-disc img{width:100%;height:100%;object-fit:cover;object-position:center 28%;border-radius:50%;animation:iaFloat 7s ease-in-out infinite}
+@media(prefers-reduced-motion:reduce){.jul-disc img{animation:none}.jul-disc{animation:none;background:conic-gradient(from 210deg,#E58960 0deg,#ECD181 70deg,#EDB393 150deg,#B96A75 220deg,#C87246 290deg,#E58960 360deg)}}
 /* efeito em volta do circulo: anel tracejado em rotacao + glow respirando */
 .jul-disc::before{content:"";position:absolute;inset:-20px;border-radius:50%;border:1.4px dashed rgba(229,137,96,.55);pointer-events:none;animation:sealSpin 30s linear infinite}
 .jul-disc::after{content:"";position:absolute;inset:-46px;border-radius:50%;background:radial-gradient(circle,rgba(229,137,96,.20),transparent 64%);z-index:-1;animation:orbBreath 6s ease-in-out infinite}
@@ -438,7 +443,7 @@ footer{position:relative;background:#F2E7E0;color:var(--texto);padding:34px 0;te
   .ia-stage .ia-label:hover{transform:translateY(-4px)}
   /* r40: palco dos 3 itens empilhado — disco em cima, cards por baixo */
   .jul-stage{min-height:0;padding-top:0;display:flex;flex-direction:column;gap:16px}
-  .jul-disc{width:min(300px,78vw);height:min(300px,78vw)}
+  .jul-disc{width:min(300px,78vw);height:min(300px,78vw);padding:9px}
   .jul-card{position:static;width:100%;transform:none}
   .jul-card.j3{transform:none}
   @media(hover:hover){.jul-card.j3:hover{transform:translateY(-4px)}}
