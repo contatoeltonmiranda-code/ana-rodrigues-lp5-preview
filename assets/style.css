@@ -1,9 +1,19 @@
 /* =====================================================================
    LP 5 — Masterclass "O Meu Filho Não Come" | Ana Rodrigues Lopes
-   Paleta, fontes e linguagem visual herdadas da LP 1 / LP 2 / LP 3.
+   Paleta e linguagem visual herdadas da LP 1 / LP 2 / LP 3.
    Coral #E58960, amarelo #ECD181, rosa #B96A75 sobre off-white #FAFAF8.
    Botao coral escuro (#C87246 -> #A34F26 -> #8C4520). Mobile-first.
+   Fontes (ronda 3, ref dralidianebossolan.com.br): titulos/subtitulos =
+   Bevenida (custom, woff2 local, so Regular/400); corpo/botoes/labels =
+   Montserrat (Google Fonts, 600 nos botoes).
    ===================================================================== */
+@font-face{
+  font-family:'Bevenida';
+  src:url('fonts/Bevenida-Regular.woff2') format('woff2');
+  font-weight:400;
+  font-style:normal;
+  font-display:swap;
+}
 :root{
   --cream:#FAFAF8; --cream2:#F5EEE7; --paper:#FFFFFF; --white:#FFFFFF;
   --areia:#F4E9DE; --areia-fim:#EEDFD0;
@@ -25,8 +35,10 @@
 /* fundo no <html> = cor do rodape (o overscroll do iOS pinta a zona alem
    do documento; sem ele aparece "espaco em branco" a rodear o rodape) */
 html{scroll-behavior:smooth;background:#F2E7E0}
-body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--cream);line-height:1.62;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-h1,h2,h3,.display{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;line-height:1.12;letter-spacing:-.4px;color:var(--ink)}
+body{font-family:'Montserrat',sans-serif;color:var(--ink);background:var(--cream);line-height:1.62;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+/* Bevenida e display font (so Regular/400 — peso maior gera faux bold);
+   line-height apertado (0.95-1.1) para nao recriar o bug de espaco do hero */
+h1,h2,h3,.display{font-family:'Bevenida','Georgia',serif;font-weight:400;line-height:1.05;letter-spacing:0;color:var(--ink)}
 img{max-width:100%;display:block}
 a{text-decoration:none}
 section{position:relative}
@@ -36,18 +48,18 @@ section{position:relative}
 .maxw-lg{max-width:980px;margin:0 auto}
 .txt-grad{background:linear-gradient(120deg,#E58960 0%,#C0643F 52%,#B96A75 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#964D59}
 .sec{padding:88px 0;position:relative}
-.sec h2{font-size:clamp(29px,3.7vw,48px);margin-bottom:16px;line-height:1.1}
+.sec h2{font-size:clamp(29px,3.7vw,48px);margin-bottom:16px;line-height:1.05}
 .sec .lead{font-size:17px;color:var(--texto)}
 .sec .lead strong{color:var(--ink);font-weight:600}
 .cta-row{display:flex;justify-content:center;margin-top:46px}
 .cta-note{margin-top:16px;text-align:center;font-size:13.5px;color:var(--texto2);letter-spacing:.2px}
 /* EYEBROW */
-.eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--grad-sage-claro);color:#5A2A33;font-size:11.5px;font-weight:800;letter-spacing:1.3px;text-transform:uppercase;padding:8px 17px;border-radius:50px;box-shadow:0 4px 16px rgba(229,137,96,.28);max-width:max-content}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--grad-sage-claro);color:#5A2A33;font-size:11.5px;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;padding:8px 17px;border-radius:50px;box-shadow:0 4px 16px rgba(229,137,96,.28);max-width:max-content}
 .eyebrow.coral{background:var(--grad-coral);color:#5A2A33}
 .eyebrow.outline{background:transparent;border:1.5px solid var(--sage);color:var(--sage-esc);box-shadow:none}
 .center .eyebrow{margin-left:auto;margin-right:auto;margin-bottom:16px}
 /* BOTAO glow + shine (coral escuro, herdado da LP 3) */
-.btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,#C87246 0%,#A34F26 45%,#8C4520 100%);color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:15px;letter-spacing:.5px;text-transform:uppercase;padding:18px 34px;border-radius:14px;border:none;cursor:pointer;outline:1.5px solid rgba(229,137,96,.30);outline-offset:4px;box-shadow:0 10px 28px rgba(169,94,61,.32),0 0 0 0 rgba(229,137,96,.55);transition:transform .25s,box-shadow .25s,background .25s;animation:btn-glow 2.8s ease-out infinite}
+.btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,#C87246 0%,#A34F26 45%,#8C4520 100%);color:#fff;font-family:'Montserrat',sans-serif;font-weight:600;font-size:15px;letter-spacing:.5px;text-transform:uppercase;padding:18px 34px;border-radius:14px;border:none;cursor:pointer;outline:1.5px solid rgba(229,137,96,.30);outline-offset:4px;box-shadow:0 10px 28px rgba(169,94,61,.32),0 0 0 0 rgba(229,137,96,.55);transition:transform .25s,box-shadow .25s,background .25s;animation:btn-glow 2.8s ease-out infinite}
 .btn::before{content:"";position:absolute;top:0;left:0;width:60%;height:100%;background:linear-gradient(100deg,transparent 0%,rgba(255,255,255,.55) 50%,transparent 100%);transform:translateX(-180%) skewX(-18deg);animation:btn-shine 8s ease-in-out infinite;pointer-events:none}
 .btn:hover{transform:translateY(-3px) scale(1.02);background:linear-gradient(135deg,#D07E52 0%,#A34F26 45%,#954922 100%);box-shadow:0 16px 40px rgba(169,94,61,.42)}
 .btn.lg{font-size:16.5px;padding:21px 42px}
@@ -139,17 +151,17 @@ section{position:relative}
 .hero .sub{font-size:clamp(15px,1.2vw,17.5px);color:var(--texto);line-height:1.62;margin-bottom:24px;max-width:640px}
 .hero .sub strong{color:var(--ink);font-weight:600}
 .hero-meta{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 14px;margin-bottom:26px}
-.date-badge{display:inline-flex;align-items:center;gap:10px;background:var(--grad-card);border:1px solid var(--linha);border-radius:16px;padding:13px 22px;box-shadow:var(--sh-soft);font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(15px,1.5vw,18px);color:var(--sage-esc);letter-spacing:-.2px}
+.date-badge{display:inline-flex;align-items:center;gap:10px;background:var(--grad-card);border:1px solid var(--linha);border-radius:16px;padding:13px 22px;box-shadow:var(--sh-soft);font-family:'Montserrat',sans-serif;font-weight:600;font-size:clamp(15px,1.5vw,18px);color:var(--sage-esc);letter-spacing:-.2px}
 .date-badge svg{width:20px;height:20px;flex-shrink:0;stroke:var(--coral-esc);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
-.hmi{display:inline-flex;align-items:center;gap:8px;background:rgba(185,106,117,.13);border:1px solid rgba(185,106,117,.4);border-radius:50px;padding:9px 17px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:.6px;color:var(--coral-esc)}
+.hmi{display:inline-flex;align-items:center;gap:8px;background:rgba(185,106,117,.13);border:1px solid rgba(185,106,117,.4);border-radius:50px;padding:9px 17px;font-family:'Montserrat',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:.6px;color:var(--coral-esc)}
 .hmi svg{width:15px;height:15px;stroke:var(--coral-esc);stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round}
 /* FORMULARIO embutido (systeme.io) — card branco no hero e no pop-up */
 .lp-form{width:100%;max-width:520px;background:linear-gradient(150deg,#FFFFFF 0%,#FDF6F2 100%);border:1px solid var(--linha);border-radius:22px;padding:28px 30px 30px;box-shadow:0 20px 48px rgba(169,94,61,.16);text-align:left}
 .lp-form::before{content:"";position:absolute;top:0;left:30px;width:70px;height:4px;border-radius:0 0 4px 4px;background:var(--grad-sage-claro);box-shadow:0 0 10px rgba(229,137,96,.4)}
 .lp-form{position:relative}
 .lp-fields{display:grid;grid-template-columns:1fr;gap:16px}
-.lp-field label{display:block;font-size:12px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--texto);margin:0 0 7px}
-.lp-field input{width:100%;font-family:'Inter',sans-serif;font-size:15.5px;color:var(--ink);background:#fff;border:1.5px solid var(--linha);border-radius:12px;padding:14px 16px;transition:border-color .2s,box-shadow .2s}
+.lp-field label{display:block;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--texto);margin:0 0 7px}
+.lp-field input{width:100%;font-family:'Montserrat',sans-serif;font-size:15.5px;color:var(--ink);background:#fff;border:1.5px solid var(--linha);border-radius:12px;padding:14px 16px;transition:border-color .2s,box-shadow .2s}
 .lp-field input:focus{outline:none;border-color:var(--sage);box-shadow:0 0 0 3px rgba(229,137,96,.18)}
 .lp-form .btn{margin-top:20px}
 .lp-nota{margin-top:18px;text-align:center;font-size:13.5px;color:var(--texto);line-height:1.6;max-width:480px}
@@ -174,7 +186,7 @@ section{position:relative}
 .rail-words{position:absolute;top:0;bottom:0;left:0;width:96px;overflow:hidden;z-index:0;pointer-events:none;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 12%,#000 88%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 12%,#000 88%,transparent 100%)}
 .rail-track{display:flex;flex-direction:column;will-change:transform;animation:railScroll 56s linear infinite;padding-top:8%}
 .rail-group{display:flex;flex-direction:column;align-items:center;gap:34px;padding-bottom:34px}
-.rail-group span{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:26px;line-height:1.1;letter-spacing:.4px;color:rgba(185,97,54,.30);white-space:nowrap;writing-mode:vertical-rl}
+.rail-group span{font-family:'Bevenida','Georgia',serif;font-weight:400;font-size:26px;line-height:1.1;letter-spacing:.4px;color:rgba(185,97,54,.30);white-space:nowrap;writing-mode:vertical-rl}
 @keyframes railScroll{to{transform:translateY(calc(-50% - 17px))}}
 @media(prefers-reduced-motion:reduce){.rail-track{animation:none}}
 @media(max-width:1365px){.rail-words{display:none}}
@@ -193,9 +205,9 @@ section{position:relative}
 .dores-card p{font-size:14.6px;color:var(--texto);line-height:1.55}
 .frases{position:relative;max-width:820px;margin:34px auto 0;background:linear-gradient(150deg,#FFFFFF 0%,#FDF6F2 100%);border:1px solid var(--linha);border-radius:20px;padding:30px 34px;text-align:center;box-shadow:var(--sh-soft)}
 .frases::after{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:88px;height:4px;border-radius:0 0 4px 4px;background:var(--grad-coral)}
-.frases p{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:clamp(16px,2vw,19px);color:var(--texto);line-height:1.55}
-.frases p b{color:var(--coral-esc);font-weight:700}
-.peso-head{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(21px,2.6vw,29px);color:var(--ink);margin:64px auto 0;max-width:700px;line-height:1.24;text-align:center}
+.frases p{font-family:'Bevenida','Georgia',serif;font-weight:400;font-size:clamp(17px,2.1vw,20px);color:var(--texto);line-height:1.5}
+.frases p b{color:var(--coral-esc);font-weight:400}
+.peso-head{font-family:'Bevenida','Georgia',serif;font-weight:400;font-size:clamp(22px,2.7vw,30px);color:var(--ink);margin:64px auto 0;max-width:700px;line-height:1.1;text-align:center}
 .peso-cards{display:grid;grid-template-columns:1fr;gap:16px;max-width:1040px;margin:34px auto 0}
 .peso-card{position:relative;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;background:var(--grad-card);border:1px solid var(--linha);border-radius:16px;padding:30px 22px 22px;box-shadow:var(--sh-soft);font-size:14.8px;color:var(--texto);line-height:1.55;transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease}
 .peso-card::before{content:"";position:absolute;top:-1px;left:24px;width:48px;height:3px;border-radius:0 0 4px 4px;background:var(--grad-sage)}
@@ -204,7 +216,7 @@ section{position:relative}
 .peso-card .pw{flex:0 0 auto;width:48px;height:48px;border-radius:15px;background:var(--grad-sage);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(169,94,61,.30),inset 0 0 0 1.5px rgba(255,255,255,.35)}
 .peso-card:nth-child(2n) .pw{background:var(--grad-coral);box-shadow:0 6px 16px rgba(150,77,89,.30),inset 0 0 0 1.5px rgba(255,255,255,.35)}
 .peso-card .pw svg{width:24px;height:24px;fill:none;stroke:#fff;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.dores-close{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(19px,2.4vw,26px);color:var(--ink);line-height:1.3;max-width:640px;margin:50px auto 0;text-align:center}
+.dores-close{font-family:'Bevenida','Georgia',serif;font-weight:400;font-size:clamp(20px,2.5vw,27px);color:var(--ink);line-height:1.15;max-width:640px;margin:50px auto 0;text-align:center}
 /* SEC 3 — TRANSFORMACAO / BENEFICIOS */
 .sec-imag{background:var(--paper);overflow:hidden}
 /* palco: imagem IA central (PNG transparente) + 3 labels flutuantes ao redor */
@@ -214,7 +226,7 @@ section{position:relative}
 @media(prefers-reduced-motion:reduce){.ia-img{animation:none}}
 .ia-label{position:absolute;width:min(300px,38%);background:var(--grad-card);border:1px solid var(--linha);border-radius:16px;padding:16px 18px;box-shadow:var(--sh-soft);display:flex;gap:12px;align-items:flex-start;text-align:left;transition:transform .3s ease,box-shadow .3s ease}
 @media(hover:hover){.ia-label:hover{transform:translateY(-4px);box-shadow:var(--sh-mid)}}
-.ia-label .ia-no{flex:0 0 auto;width:34px;height:34px;border-radius:50%;background:var(--grad-sage);color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(169,94,61,.34),inset 0 0 0 2px rgba(255,255,255,.4)}
+.ia-label .ia-no{flex:0 0 auto;width:34px;height:34px;border-radius:50%;background:var(--grad-sage);color:#fff;font-family:'Montserrat',sans-serif;font-weight:600;font-size:16px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(169,94,61,.34),inset 0 0 0 2px rgba(255,255,255,.4)}
 .ia-label:nth-of-type(2) .ia-no{background:var(--grad-coral);box-shadow:0 4px 12px rgba(150,77,89,.34),inset 0 0 0 2px rgba(255,255,255,.4)}
 .ia-label p{font-size:14.2px;color:var(--texto);line-height:1.55}
 .ia-label.l1{top:2%;left:0}
@@ -237,18 +249,18 @@ section{position:relative}
 .cred-seal .cs-disc{position:absolute;inset:0;border-radius:50%;background:var(--grad-sage);box-shadow:0 10px 26px rgba(169,94,61,.4),0 0 0 7px var(--cream)}
 .cred-seal .cs-anel{position:absolute;inset:-8px;border-radius:50%;pointer-events:none;border:1px solid rgba(229,137,96,.5);stroke-dasharray:5 9;animation:sealSpin 26s linear infinite}
 .cred-seal .cs-core{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:64%;height:64%;border-radius:50%;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:inset 0 0 0 1px rgba(229,137,96,.3),0 4px 12px rgba(169,94,61,.2)}
-.cred-seal .cs-core b{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:13.5px;color:var(--sage-esc);line-height:1.1;letter-spacing:-.2px}
+.cred-seal .cs-core b{font-family:'Montserrat',sans-serif;font-weight:700;font-size:13.5px;color:var(--sage-esc);line-height:1.1;letter-spacing:-.2px}
 .cred-seal .cs-core span{font-size:8px;font-weight:700;letter-spacing:1.1px;text-transform:uppercase;color:var(--texto2);margin-top:4px;line-height:1.35;padding:0 10px}
 @keyframes sealSpin{to{transform:rotate(360deg)}}
 @media(prefers-reduced-motion:reduce){.cred-seal .cs-anel,.cred-seal .cs-glow{animation:none}}
 .sobre-itens{display:grid;grid-template-columns:1fr;gap:22px;max-width:1040px;margin:44px auto 0}
 .sobre-card{background:var(--grad-card);border:1px solid var(--linha);border-radius:22px;padding:32px 30px;text-align:left;box-shadow:var(--sh-soft);transition:transform .3s ease,box-shadow .3s ease}
 @media(hover:hover){.sobre-card:hover{transform:translateY(-4px);box-shadow:var(--sh-mid)}}
-.sobre-card h3{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(20px,2.4vw,26px);color:var(--sage-esc);margin-bottom:14px}
+.sobre-card h3{font-size:clamp(21px,2.5vw,27px);color:var(--sage-esc);margin-bottom:14px}
 .sobre-card p{font-size:15.2px;color:var(--texto);margin-bottom:14px;line-height:1.7}
 .sobre-card p:last-child{margin-bottom:0}
 .sobre-card p strong{color:var(--ink);font-weight:600}
-.sobre-card .sobre-fim{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:17.5px;color:var(--coral-esc)}
+.sobre-card .sobre-fim{font-family:'Bevenida','Georgia',serif;font-weight:400;font-size:19px;color:var(--coral-esc)}
 /* SEC 4b — RESERVA JA O TEU LUGAR */
 .sec-reserva{background:var(--areia);overflow:hidden}
 /* grid r16: card grande colorido (esq) + painel escuro de pills (dir) */
@@ -259,13 +271,13 @@ section{position:relative}
 .res-card .res-lead b{color:var(--ink);font-weight:600}
 .res-card .btn{margin-top:30px}
 .res-panel{display:flex;flex-direction:column;justify-content:center;gap:13px;background:#3B3330;border-radius:26px;padding:38px 34px;box-shadow:var(--sh-mid)}
-.rp-pill{display:block;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:13px 24px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:15px;letter-spacing:.2px;color:#F7EFE9;line-height:1.5}
-.rp-wide{font-family:'Inter',sans-serif;font-weight:400;font-size:14.4px;color:rgba(247,239,233,.88)}
+.rp-pill{display:block;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:13px 24px;font-family:'Montserrat',sans-serif;font-weight:500;font-size:15px;letter-spacing:.2px;color:#F7EFE9;line-height:1.5}
+.rp-wide{font-weight:400;font-size:14.4px;color:rgba(247,239,233,.88)}
 .julgos{position:relative;max-width:840px;margin:52px auto 0;background:linear-gradient(150deg,#FFFFFF 0%,#FDF6F2 100%);border:1px solid var(--linha);border-radius:24px;padding:40px 44px;text-align:center;box-shadow:var(--sh-soft)}
 .julgos::before{content:"";position:absolute;inset:0;border-radius:24px;padding:2px;background:conic-gradient(from var(--angle),rgba(229,137,96,0) 0deg,rgba(229,137,96,0) 200deg,var(--sage) 260deg,var(--coral) 310deg,#fff 330deg,var(--sage) 350deg,rgba(229,137,96,0) 360deg);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask-composite:exclude;animation:angleSpin 6s linear infinite;pointer-events:none;z-index:0}
 @media(prefers-reduced-motion:reduce){.julgos::before{animation:none}}
 .julgos>*{position:relative;z-index:1}
-.julgos h3{font-size:clamp(21px,2.6vw,27px);line-height:1.25;margin-bottom:16px}
+.julgos h3{font-size:clamp(22px,2.7vw,28px);line-height:1.1;margin-bottom:16px}
 .julgos p{font-size:15.5px;color:var(--texto);line-height:1.7;margin-bottom:14px}
 .julgos p:last-child{margin-bottom:0}
 .julgos p strong{color:var(--ink);font-weight:600}
@@ -273,7 +285,7 @@ section{position:relative}
 .sec-faq{background:var(--paper)}
 .faq-list{max-width:820px;margin:44px auto 0;display:grid;gap:12px}
 .faq-item{background:var(--grad-card);border:1px solid var(--linha);border-radius:14px;overflow:hidden;box-shadow:0 4px 14px rgba(169,94,61,.07)}
-.faq-item summary{list-style:none;cursor:pointer;padding:20px 24px;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:700;color:var(--ink);display:flex;align-items:center;justify-content:space-between;gap:16px}
+.faq-item summary{list-style:none;cursor:pointer;padding:20px 24px;font-family:'Montserrat',sans-serif;font-size:15px;font-weight:600;color:var(--ink);display:flex;align-items:center;justify-content:space-between;gap:16px}
 .faq-item summary::-webkit-details-marker{display:none}
 .faq-item summary .fq-ico{flex-shrink:0;width:26px;height:26px;border-radius:50%;border:1.5px solid var(--sage);position:relative;transition:transform .3s}
 .faq-item summary .fq-ico::before,.faq-item summary .fq-ico::after{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--sage-esc)}
@@ -307,7 +319,7 @@ footer{position:relative;background:#F2E7E0;color:var(--texto);padding:34px 0;te
 .pop.on{display:flex}
 .pop-card{position:relative;width:100%;max-width:500px;background:linear-gradient(150deg,#FFFFFF 0%,#FDF6F2 100%);border-radius:24px;padding:42px 38px 36px;box-shadow:0 30px 70px rgba(0,0,0,.34);max-height:92vh;overflow:auto}
 .pop-card .eyebrow{margin-bottom:14px}
-.pop-card h3{font-size:clamp(21px,2.6vw,26px);line-height:1.2;margin-bottom:10px}
+.pop-card h3{font-size:clamp(22px,2.7vw,27px);line-height:1.1;margin-bottom:10px}
 .pop-card .pop-sub{font-size:14.5px;color:var(--texto);line-height:1.6;margin-bottom:22px}
 .pop-card .lp-form{max-width:none;padding:0;border:none;box-shadow:none;background:none}
 .pop-card .lp-form::before{display:none}
