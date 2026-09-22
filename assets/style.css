@@ -175,8 +175,11 @@ section{position:relative}
 .lp-consent-msg{margin-top:8px;font-family:'Montserrat',sans-serif;font-size:12.5px;color:#B03A2E;line-height:1.5}
 .lp-form .lp-consent-msg:not([hidden]) + .btn{margin-top:14px}
 .lp-form .btn{margin-top:20px}
-/* r33: frase menor abaixo do form do hero */
-.lp-nota{margin-top:18px;text-align:center;font-size:10px;color:var(--texto);line-height:1.6;max-width:440px}
+/* r33: frase menor abaixo do form do hero — r49/r44: CENTRALIZADA sob o
+   card do form (desktop: mesma largura do form 520px, colado a ele — o
+   texto centra dentro; mobile: auto margins centralizam na coluna) */
+.lp-nota{margin:18px auto 0;text-align:center;font-size:10px;color:var(--texto);line-height:1.6;max-width:440px}
+@media(min-width:960px){.hero .lp-nota{max-width:520px;width:100%;margin-left:0;margin-right:0}}
 /* visual do hero — moldura organica (regra de ouro: cover, zero overlay) */
 .hero-visual{position:relative;display:flex;align-items:center;justify-content:center;min-height:0}
 .hv-shape{position:relative;width:100%;max-width:400px;aspect-ratio:4/4.4;overflow:hidden;
@@ -273,8 +276,8 @@ section{position:relative}
 @media(max-width:600px){.sep-seal{width:70px;height:70px}.sep-seal svg{width:24px;height:24px}}
 /* divisoria ONDULADA com icone (r30 — padrao curva-div do combo LP2/LP3):
    faixa da cor da seccao de cima com dip ondulado no centro, fio na crista
-   e circulo com chevron no dip */
-.curva-div{position:absolute;left:0;right:0;top:0;z-index:1;pointer-events:none;height:88px;line-height:0;filter:drop-shadow(0 3px 7px rgba(169,94,61,.10))}
+   e circulo com chevron no dip — r49/r47: SEM sombra (drop-shadow removido) */
+.curva-div{position:absolute;left:0;right:0;top:0;z-index:1;pointer-events:none;height:88px;line-height:0}
 .curva-div svg{display:block;width:100%;height:100%}
 .curva-div .cd-fill{fill:var(--curva-cor,var(--areia))}
 .curva-div .cd-crest{fill:none;stroke:rgba(185,97,54,.40);stroke-width:1.6;vector-effect:non-scaling-stroke}
@@ -296,18 +299,22 @@ section{position:relative}
    onde as tres fotos se encontram (top 59%). Texto DIRETO a direita. */
 .sobre-grid{display:grid;grid-template-columns:1fr;gap:44px;max-width:1080px;margin:44px auto 0;align-items:center}
 .sobre-collage{position:relative;width:100%;max-width:470px;margin:0 auto;padding:0}
-.sobre-collage figure{margin:0;overflow:hidden;background:#fff}
+/* r49/r45: cantos ARREDONDADOS nas fotos (posicoes mantidas) */
+.sobre-collage figure{margin:0;overflow:hidden;background:#fff;border-radius:18px}
 .sobre-collage img{width:100%;height:100%;object-fit:cover;display:block}
 .sc-a{position:relative;z-index:1;width:100%;aspect-ratio:15/8;margin:0}
 .sc-row{position:relative;z-index:2;display:flex;justify-content:center;gap:14px;margin-top:19px}
 .sc-b,.sc-c{width:calc(50% - 7px);aspect-ratio:4/3}
-.cred-seal{position:absolute;z-index:4;width:104px;height:104px;top:59%;left:50%;transform:translate(-50%,-50%)}
+/* r49/r45: selo maior (118px, MESMA posicao — top 59% mantido) e fonte
+   menor para o texto caber DENTRO do circulo branco (nada transborda):
+   "C.P. n.º" e "2069N" em 2 linhas + role 6px curto */
+.cred-seal{position:absolute;z-index:4;width:118px;height:118px;top:59%;left:50%;transform:translate(-50%,-50%)}
 .cred-seal .cs-glow{position:absolute;inset:-16px;border-radius:50%;background:radial-gradient(circle,rgba(229,137,96,.28),transparent 66%);animation:orbBreath 4.6s ease-in-out infinite}
 .cred-seal .cs-disc{position:absolute;inset:0;border-radius:50%;background:var(--grad-sage);box-shadow:0 10px 26px rgba(169,94,61,.4),0 0 0 7px var(--cream)}
 .cred-seal .cs-anel{position:absolute;inset:-8px;border-radius:50%;pointer-events:none;border:1px solid rgba(229,137,96,.5);stroke-dasharray:5 9;animation:sealSpin 26s linear infinite}
-.cred-seal .cs-core{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:64%;height:64%;border-radius:50%;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:inset 0 0 0 1px rgba(229,137,96,.3),0 4px 12px rgba(169,94,61,.2)}
-.cred-seal .cs-core b{font-family:'Montserrat',sans-serif;font-weight:700;font-size:13.5px;color:var(--sage-esc);line-height:1.1;letter-spacing:-.2px}
-.cred-seal .cs-core span{font-size:8px;font-weight:700;letter-spacing:1.1px;text-transform:uppercase;color:var(--texto2);margin-top:4px;line-height:1.35;padding:0 10px}
+.cred-seal .cs-core{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:72%;height:72%;border-radius:50%;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:inset 0 0 0 1px rgba(229,137,96,.3),0 4px 12px rgba(169,94,61,.2)}
+.cred-seal .cs-core b{font-family:'Montserrat',sans-serif;font-weight:700;font-size:11.5px;color:var(--sage-esc);line-height:1.15;letter-spacing:-.2px}
+.cred-seal .cs-core span{font-size:6px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;color:var(--texto2);margin-top:4px;line-height:1.25;padding:0 6px}
 @keyframes sealSpin{to{transform:rotate(360deg)}}
 @media(prefers-reduced-motion:reduce){.cred-seal .cs-anel,.cred-seal .cs-glow{animation:none}}
 .sobre-txt h3{font-size:clamp(21px,2.5vw,27px);color:var(--sage-esc);margin-bottom:14px}
@@ -317,10 +324,10 @@ section{position:relative}
 .sobre-txt .sobre-fim{font-family:'Bevenida','Georgia',serif;font-weight:400;font-size:19px;color:var(--coral-esc)}
 /* SEC 4b — RESERVA JA O TEU LUGAR */
 .sec-reserva{background:var(--areia);overflow:hidden}
-/* grid r16 ajustado (r29) + r38: card coral ganha largura (grid 1120px,
-   colunas 1.24fr/.76fr); os 3 pills deslizam para a esquerda e ficam
-   sobrepostos a borda direita do card coral */
-.res-grid{display:grid;grid-template-columns:1fr;gap:22px;max-width:1120px;margin:44px auto 0;align-items:center}
+/* grid r16 ajustado (r29) + r38 + r49/r46: card coral encolhe um pouco
+   (grid 1120 -> 1060px, colunas 1.24fr/.76fr mantidas); os 3 pills
+   deslizam para a esquerda e ficam sobrepostos a borda direita do card */
+.res-grid{display:grid;grid-template-columns:1fr;gap:22px;max-width:1060px;margin:44px auto 0;align-items:center}
 .res-card{position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:flex-start;text-align:left;background:var(--grad-sage-claro);border-radius:26px;padding:46px 44px;box-shadow:var(--sh-mid)}
 .res-card h2{margin-bottom:0}
 .res-card .res-lead{margin:16px 0 0;max-width:560px;text-align:left;font-size:16.2px;color:#5C4A3F;line-height:1.72}
@@ -386,7 +393,8 @@ section{position:relative}
 .fa-frame img{width:100%;height:100%;object-fit:cover;object-position:center top}
 /* FOOTER */
 footer{position:relative;background:#F2E7E0;color:var(--texto);padding:34px 0;text-align:center;font-size:13px}
-.foot-links{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 22px;margin-bottom:18px;border-top:1px solid rgba(229,137,96,.25);padding-top:24px}
+/* r49/r48: linha (border-top) do rodape removida */
+.foot-links{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 22px;margin-bottom:18px}
 .foot-links a{color:var(--texto);font-size:12.5px;transition:color .2s}
 .foot-links a:hover{color:var(--sage-esc)}
 .foot-copy{font-size:12px;color:var(--texto2);line-height:1.6}
@@ -462,7 +470,9 @@ footer{position:relative;background:#F2E7E0;color:var(--texto);padding:34px 0;te
   .dores-card,.peso-card{padding:18px 16px;gap:12px}
   .dores-card p,.peso-card p{font-size:14.2px}
   .frases{padding:26px 22px}
-  .cred-seal{width:96px;height:96px}
+  .cred-seal{width:104px;height:104px}
+  .cred-seal .cs-core b{font-size:10px}
+  .cred-seal .cs-core span{font-size:5.5px;letter-spacing:.3px}
   .sobre-txt p{font-size:14.6px}
   .res-card{padding:36px 26px}
   .final-inner{padding:40px 24px;border-radius:20px}
