@@ -49,8 +49,6 @@ section{position:relative}
 .center{text-align:center}
 .maxw{max-width:760px;margin:0 auto}
 .maxw-lg{max-width:980px;margin:0 auto}
-/* r57: espaco pro texto nao ficar sobre a prancheta + veio sutil de leitura */
-.sec-duv .maxw-lg{padding:200px 26px 18px;background:linear-gradient(180deg,rgba(248,226,203,0) 0,rgba(248,226,203,.55) 30%,rgba(248,226,203,.55) 100%);border-radius:0 0 16px 16px}
 .txt-grad{background:linear-gradient(120deg,#6A9383 0%,#557D6F 52%,#434A50 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#4E7365}
 .sec{padding:88px 0;position:relative}
 .sec h2{font-size:clamp(29px,3.7vw,48px);margin-bottom:16px;line-height:1.05}
@@ -236,7 +234,8 @@ section{position:relative}
 .frases::after{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:88px;height:4px;border-radius:0 0 4px 4px;background:var(--grad-coral)}
 .frases p{font-family:'Bevenida','Georgia',serif;font-weight:400;font-size:clamp(17px,2.1vw,20px);color:var(--texto);line-height:1.5}
 .frases p b{color:var(--coral-esc);font-weight:400}
-.peso-head{font-family:'Bevenida','Georgia',serif;font-weight:400;font-size:clamp(22px,2.7vw,30px);color:var(--ink);margin:64px auto 0;max-width:700px;line-height:1.1;text-align:center}
+/* r58: espaco pro titulo nao ficar sobre a prancheta + veio sutil de leitura */
+.peso-head{font-family:'Bevenida','Georgia',serif;font-weight:400;font-size:clamp(22px,2.7vw,30px);color:var(--ink);margin:64px auto 0;max-width:700px;line-height:1.1;text-align:center;padding:200px 26px 18px;background:linear-gradient(180deg,rgba(248,226,203,0) 0,rgba(248,226,203,.55) 30%,rgba(248,226,203,.55) 100%);border-radius:0 0 16px 16px}
 .peso-cards{display:grid;grid-template-columns:1fr;gap:16px;max-width:1040px;margin:34px auto 0}
 /* r23: borda superior com gradiente que some nas laterais + TODO o conteudo
    alinhado a esquerda */
