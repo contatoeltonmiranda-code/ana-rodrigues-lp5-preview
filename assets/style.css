@@ -324,10 +324,10 @@ section{position:relative}
 .sobre-txt .sobre-fim{font-family:'Bevenida','Georgia',serif;font-weight:400;font-size:19px;color:var(--coral-esc)}
 /* SEC 4b — RESERVA JA O TEU LUGAR */
 .sec-reserva{background:var(--areia);overflow:hidden}
-/* grid r16 ajustado (r29) + r38 + r49/r46: card coral encolhe um pouco
-   (grid 1120 -> 1060px, colunas 1.24fr/.76fr mantidas); os 3 pills
-   deslizam para a esquerda e ficam sobrepostos a borda direita do card */
-.res-grid{display:grid;grid-template-columns:1fr;gap:22px;max-width:1060px;margin:44px auto 0;align-items:center}
+/* grid r16 ajustado (r29) + r38 + r49/r46/r50: card volta a 1120px
+   (ronda 7 encolheu a pedido, Elton reverteu); pills sobrepostos a
+   borda direita do card, gap direita apertado */
+.res-grid{display:grid;grid-template-columns:1fr;gap:22px;max-width:1120px;margin:44px auto 0;align-items:center}
 .res-card{position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:flex-start;text-align:left;background:var(--grad-sage-claro);border-radius:26px;padding:46px 44px;box-shadow:var(--sh-mid)}
 .res-card h2{margin-bottom:0}
 .res-card .res-lead{margin:16px 0 0;max-width:560px;text-align:left;font-size:16.2px;color:#5C4A3F;line-height:1.72}
