@@ -235,7 +235,8 @@ section{position:relative}
 .frases p{font-family:'Bevenida','Georgia',serif;font-weight:400;font-size:clamp(17px,2.1vw,20px);color:var(--texto);line-height:1.5}
 .frases p b{color:var(--coral-esc);font-weight:400}
 /* r58: espaco pro titulo nao ficar sobre a prancheta + veio sutil de leitura */
-.peso-head{font-family:'Bevenida','Georgia',serif;font-weight:400;font-size:clamp(22px,2.7vw,30px);color:var(--ink);margin:64px auto 0;max-width:700px;line-height:1.1;text-align:center;padding:200px 26px 18px;background:linear-gradient(180deg,rgba(248,226,203,0) 0,rgba(248,226,203,.55) 30%,rgba(248,226,203,.55) 100%);border-radius:0 0 16px 16px}
+.peso-head{font-family:'Bevenida','Georgia',serif;font-weight:400;font-size:clamp(22px,2.7vw,30px);color:var(--areia);margin:64px auto 0;max-width:760px;line-height:2;text-align:center;padding:200px 26px 18px}
+.peso-head mark{display:inline;background:var(--ink);color:var(--areia);font:inherit;padding:10px 30px;border-radius:16px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
 .peso-cards{display:grid;grid-template-columns:1fr;gap:16px;max-width:1040px;margin:34px auto 0}
 /* r23: borda superior com gradiente que some nas laterais + TODO o conteudo
    alinhado a esquerda */
@@ -308,13 +309,20 @@ section{position:relative}
 /* r49/r45: cantos ARREDONDADOS nas fotos (posicoes mantidas) */
 .sobre-collage figure{margin:0;overflow:hidden;background:#fff;border-radius:18px}
 .sobre-collage img{width:100%;height:100%;object-fit:cover;display:block}
-.sc-a{position:relative;z-index:1;width:100%;aspect-ratio:15/8;margin:0}
-.sc-row{position:relative;z-index:2;display:flex;justify-content:center;gap:14px;margin-top:19px}
-.sc-b,.sc-c{width:calc(50% - 7px);aspect-ratio:4/3}
-/* r49/r45: selo maior (118px, MESMA posicao — top 59% mantido) e fonte
-   menor para o texto caber DENTRO do circulo branco (nada transborda):
-   "C.P. n.º" e "2069N" em 2 linhas + role 6px curto */
-.cred-seal{position:absolute;z-index:4;width:118px;height:118px;top:59%;left:50%;transform:translate(-50%,-50%)}
+/* r59 (2026-10-05): 3 fotos -> FOTO UNICA (pedido da cliente) — vertical 4/5
+   (mais alta), moldura de cantos animada APENAS sup-direita + inf-esquerda
+   (hairline sage + spark percorrendo o L) e selo C.P. cravado na base da foto */
+.sc-single{position:relative;z-index:1;width:100%;aspect-ratio:4/5;margin:0;box-shadow:0 26px 52px rgba(74,104,93,.22)}
+.corner{position:absolute;z-index:6;width:96px;height:96px;top:-8px;pointer-events:none;overflow:visible}
+.corner-tr{right:-8px}
+.corner-bl{top:auto;bottom:-8px;left:-8px;transform:scale(-1,-1)}
+.corner .ck-linha{stroke:url(#ckSageA);stroke-width:2.5;stroke-linecap:round;fill:none;opacity:.42}
+.corner .ck-spark{stroke:url(#ckSageA);stroke-width:3;stroke-linecap:round;fill:none;stroke-dasharray:36 164;animation:ckFlow 3.8s linear infinite;filter:drop-shadow(0 0 3px rgba(168,190,178,.75))}
+.corner-bl .ck-linha,.corner-bl .ck-spark{stroke:url(#ckSageB)}
+@keyframes ckFlow{to{stroke-dashoffset:-400}}
+@media(prefers-reduced-motion:reduce){.corner .ck-spark{animation:none;stroke-dasharray:none;opacity:0}}
+@media(max-width:600px){.corner{width:64px;height:64px}}
+.cred-seal{position:absolute;z-index:4;width:118px;height:118px;top:auto;bottom:22px;left:50%;transform:translate(-50%,0)}
 .cred-seal .cs-glow{position:absolute;inset:-16px;border-radius:50%;background:radial-gradient(circle,rgba(106,147,131,.28),transparent 66%);animation:orbBreath 4.6s ease-in-out infinite}
 .cred-seal .cs-disc{position:absolute;inset:0;border-radius:50%;background:var(--grad-sage);box-shadow:0 10px 26px rgba(74,104,93,.4),0 0 0 7px var(--cream)}
 .cred-seal .cs-anel{position:absolute;inset:-8px;border-radius:50%;pointer-events:none;border:1px solid rgba(106,147,131,.5);stroke-dasharray:5 9;animation:sealSpin 26s linear infinite}
