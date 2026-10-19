@@ -478,3 +478,6 @@ footer{position:relative;background:#F2E3CF;color:var(--texto);padding:34px 0;te
   .final-inner{padding:40px 24px;border-radius:20px}
   .pop-card{padding:36px 22px 28px;border-radius:20px}
 }
+/* r64: mobile/tablet — prancheta enquadrada no espaco da foto (cover gigante na secao alta) */
+@media(max-width:1079px){.sec-duv{background-color:#F8E2CB;background-size:1100px auto;background-position:48% 96px}}
+@media(max-width:600px){.sec-duv{background-size:900px auto;background-position:48% 100px}}
