@@ -18,7 +18,8 @@
 <link rel="stylesheet" href="../assets/style.css">
 <!-- Versao gravada 7EUR: CSS partilhado com a versao ao vivo (../assets/style.css,
      NAO alterado). So o encaixe das 2 seccoes novas fica aqui, com tokens e
-     componentes ja existentes (peso-card, eyebrow, res-card, rp-pill). -->
+     componentes ja existentes (peso-card, eyebrow, res-card, rp-pill).
+     Caixa do preco em verde sage (ajuste da cliente 2026-10-19). -->
 <style>
 .hero-cta{display:flex;width:100%;max-width:520px;justify-content:center}
 @media(min-width:960px){.hero-cta{justify-content:flex-start}}
@@ -27,8 +28,28 @@
 .oferta-txt .eyebrow{margin-bottom:12px}
 .oferta-txt h3{font-size:clamp(20px,2.2vw,25px);line-height:1.2;color:var(--sage-esc);margin-bottom:10px}
 .oferta-txt p{font-size:14.8px;color:var(--texto);line-height:1.6}
-.preco-valor{font-family:'Bevenida','Georgia',serif;font-weight:400;font-size:clamp(64px,8vw,96px);line-height:1;color:#F8E2CB;margin:14px 0 4px}
-.preco-card .res-lead + .res-lead{margin-top:12px}
+/* Preco (ajuste cliente 2026-10-19): caixa unica centrada em verde sage,
+   diferente da caixa carvao "Reserva ja o teu lugar". Fundo = metade escura do
+   --grad-sage (#557D6F) + --sage-esc (#4E7365): branco >= 4.62:1 (AA). O
+   --grad-sage inteiro comeca em #7FA091 (branco 2.86:1) e reprovaria AA. */
+.sec-preco .res-grid{grid-template-columns:1fr;max-width:620px}
+.preco-card{align-items:center;text-align:center;background:linear-gradient(135deg,#557D6F 0%,#4E7365 100%);box-shadow:0 18px 44px rgba(74,104,93,.34)}
+.preco-card h2{color:#fff}
+.preco-valor{font-family:'Bevenida','Georgia',serif;font-weight:400;font-size:clamp(64px,8vw,96px);line-height:1;color:#F8E2CB;margin:14px 0 0}
+.preco-iva{margin-top:8px;font-family:'Montserrat',sans-serif;font-weight:500;font-size:13.5px;letter-spacing:1.2px;text-transform:uppercase;color:#fff}
+.preco-inclui{width:100%;max-width:470px;margin-top:30px;text-align:left}
+.preco-inclui-tit{font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:#fff;margin-bottom:6px}
+.preco-lista{list-style:none;margin:0;padding:0}
+.preco-lista li{position:relative;padding:13px 0 13px 36px;border-top:1px solid rgba(255,255,255,.24);font-family:'Montserrat',sans-serif;font-weight:500;font-size:15.2px;line-height:1.5;color:#fff}
+.preco-lista li:last-child{border-bottom:1px solid rgba(255,255,255,.24)}
+.preco-lista li::before{content:"";position:absolute;left:0;top:14px;width:22px;height:22px;border-radius:50%;background:#F8E2CB}
+.preco-lista li::after{content:"";position:absolute;left:8px;top:19px;width:5px;height:9px;border:solid #4E7365;border-width:0 2px 2px 0;transform:rotate(45deg)}
+.preco-card .btn{margin-top:32px}
+.preco-txt{max-width:620px;margin:34px auto 0;position:relative;z-index:1}
+.preco-txt p{font-size:16.2px;line-height:1.72;color:var(--texto)}
+.preco-txt p + p{margin-top:14px}
+@media(min-width:960px){.sec-preco .res-grid{grid-template-columns:1fr}.sec-preco .res-card{padding-right:44px}}
+@media(max-width:600px){.preco-lista li{font-size:14.5px}.preco-txt{margin-top:28px}.preco-txt p{font-size:15.4px}}
 @media(min-width:720px){.ofertas{grid-template-columns:1fr 1fr}}
 @media(min-width:960px){.ofertas{grid-template-columns:1fr 1fr}}
 </style>
@@ -200,16 +221,22 @@
       <div class="res-card preco-card sr-hidden">
         <h2>Investimento</h2>
         <p class="preco-valor">7€</p>
-        <p class="res-lead">Todas as crianças têm o direito de ser compreendidas nas suas dificuldades alimentares e de viver refeições tranquilas e felizes.</p>
-        <p class="res-lead">É por acreditar nisto que decidi disponibilizar esta masterclass por um valor simbólico, para que o maior número possível de famílias possa ter acesso a informação baseada em ciência e começar a olhar para a alimentação dos seus filhos com mais clareza e confiança.</p>
+        <p class="preco-iva">IVA incluído</p>
+        <div class="preco-inclui">
+          <p class="preco-inclui-tit">Inclui:</p>
+          <ul class="preco-lista">
+            <li>Masterclass gravada “O meu filho não come”</li>
+            <li>Checklist “O meu filho não come: Quando é normal e quando se torna preocupante?”</li>
+            <li>E-book: “Os 10 mitos mais comuns sobre recusa e seletividade alimentar”</li>
+            <li>3 meses de acesso à plataforma</li>
+          </ul>
+        </div>
         <a class="btn lg" href="https://www.lp.entrepapasefrutas.pt/pagamento-masterclass-o-meu-filho-nao-come">Quero aceder agora</a>
       </div>
-      <ul class="res-panel sr-hidden">
-        <li class="rp-pill">Masterclass gravada “O meu filho não come”</li>
-        <li class="rp-pill">Checklist “O meu filho não come: Quando é normal e quando se torna preocupante?”</li>
-        <li class="rp-pill">E-book: “Os 10 mitos mais comuns sobre recusa e seletividade alimentar”</li>
-        <li class="rp-pill">3 meses de acesso à plataforma</li>
-      </ul>
+    </div>
+    <div class="preco-txt sr-hidden">
+      <p>Todas as crianças têm o direito de ser compreendidas nas suas dificuldades alimentares e de viver refeições tranquilas e felizes.</p>
+      <p>É por acreditar nisto que decidi disponibilizar esta masterclass por um valor simbólico, para que o maior número possível de famílias possa ter acesso a informação baseada em ciência e começar a olhar para a alimentação dos seus filhos com mais clareza e confiança.</p>
     </div>
   </div>
 </section>
